@@ -86,6 +86,10 @@ class ClassComp extends Component {
     componentDidUpdate(prevProps, prevState) {
         // render 이후에 호출되는 라이프 사이클 메서드
     }
+
+    componentWillUnmount() {
+        console.log("class component is unmount(componentWillUnmount)");
+    }
 }
 
 export default ClassComp;

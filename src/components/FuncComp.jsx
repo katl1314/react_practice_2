@@ -11,6 +11,9 @@ function FuncComp(props) {
     // 함수형 컴포넌트는 useEffect를 통해 라이프사이클 구현이 가능하다.
     // 화면에 렌더링이 완료된 후에 수행함. useEffect
     // or state가 업데이트가 되었을때 수행하기도 함.
+    // useEffect의 두번째 인자를 배열로 전달함.
+    // 해당 값이 변경될때만 useEffect를 호출한다.
+    // 만약 두번째 인자가 빈 배열이면 componentDidMount처럼 처음 한번만 호출하게 됨.
     useEffect(() => {
         // side effect
         console.log(
@@ -18,16 +21,17 @@ function FuncComp(props) {
             +(++funcId),
             color
         );
-
-        document.title = `${number} : ${date}`;
+        console.log(number);
+        document.title = number;
         return () => {
+            // componentWillUnmout와 비슷함.
             console.log(
                 "func => useEffect return (componentWillMount, componentDidMount)",
                 +(++funcId),
                 color
             );
         };
-    });
+    }, []); // 두번째 인자로 빈 배열 설정 시 componentDidMount처럼 동작함.
     return (
         <div className="comp">
             <h2>함수형 컴포넌트</h2>
