@@ -14,6 +14,7 @@ class ClassComp extends Component {
     // render 이전
     componentWillMount() {
         // constructor 이후 render 이전 ==> 사용 검지검지
+        // console.log에 %c을 적용하게 되면 스타일을 적용할 수 있다.
         console.log("%cclass => componentWillUnmount", classStyle);
     }
     // render 이후

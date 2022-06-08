@@ -21,3 +21,21 @@
         const numberState = useState(props.initNumber);
     }
 </pre>
+
+## 3. React Hook : useEffect
+
+-   useEffect 사용하는 이유 : 함수형 컴포넌트에서 클래스형 컴포넌트의 라이프사이클 componentWillMount(render 함수 이후), componentDidUpdate(state변경을 통한 render이후)처럼 render이후에 처리를 위해 만들어짐.
+
+-   useEffect에 인자로 콜백함수를 전달하여, 화면에 렌더링이 되고 이후 처리를 작성한다.
+
+-   useState를 통해 두번째 배열 요소 전달받은 함수를 통해 state값을 변경 시 다시 화면에 render하기 때문에 콜백 함수를 호출한다.
+<pre>
+    import { useState, useEffect } from "react";
+
+    function Example(props) {
+        useEffect(() => {
+            console.log("화면에 rendering이후에 발생해요~");
+        });
+        return ...
+    }
+</pre>
